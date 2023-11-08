@@ -16,6 +16,14 @@ export const playGame = (currentPosition: number, diceRoll: number = 0) => {
 
   const newPosition = currentPosition + diceRoll;
 
+  if (newPosition > 100) {
+    return currentPosition;
+  }
+
+  if (newPosition === 100) {
+    return -1;
+  }
+
 
   // check for snake
   const snake = snakePositions.find((snake) => {

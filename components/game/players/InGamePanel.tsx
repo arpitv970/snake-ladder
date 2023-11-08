@@ -2,10 +2,12 @@
 import { Button } from '@/components/ui/button'
 import { useGlobalContext } from '@/contexts'
 import { playGame } from '@/lib/game-logic'
-import React from 'react'
+import React, { useState } from 'react'
+import PlayerBlock from './PlayerBlock'
+import { playerType } from '@/lib/types'
 const InGamePanel = () => {
   const { diceRes, setDiceRes, players } = useGlobalContext();
-
+  const [currPlayer, setCurrPlayer] = useState<playerType>()
 
   const handleDice = async () => {
 
@@ -15,9 +17,10 @@ const InGamePanel = () => {
 
 
     // play the game
-    let activePlayer = await players.find((p) => p.acitve === true)
+    let activePlayer = players.find((p) => p.acitve === true)
     if (activePlayer) {
       let gotoTile = playGame(activePlayer.activePosition, randomNumber)
+      setCurrPlayer(activePlayer);
       console.log('goto', gotoTile)
       players.forEach((p, i, arr) => {
         if (p.id === activePlayer?.id) {
@@ -37,6 +40,11 @@ const InGamePanel = () => {
         <div className='text-xl'>{diceRes}</div>
         <Button onClick={handleDice}>Roll the Dice</Button>
       </section>
+      {
+        currPlayer && (
+          <PlayerBlock pId={currPlayer.id} />
+        )
+      }
       <section>
       </section>
     </section>
