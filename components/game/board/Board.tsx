@@ -32,6 +32,7 @@ const Board = () => {
                   <Tile
                     id={item + 1}
                     type='snake'
+                    key={idx}
                   />
                 )
               }
