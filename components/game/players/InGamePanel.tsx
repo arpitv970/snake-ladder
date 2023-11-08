@@ -7,7 +7,7 @@ const InGamePanel = () => {
   const { diceRes, setDiceRes, players } = useGlobalContext();
 
 
-  const handleDice = () => {
+  const handleDice = async () => {
 
     // get random number
     let randomNumber: number = 0
@@ -15,7 +15,7 @@ const InGamePanel = () => {
 
 
     // play the game
-    let activePlayer = players.find((p) => p.acitve === true)
+    let activePlayer = await players.find((p) => p.acitve === true)
     if (activePlayer) {
       let gotoTile = playGame(activePlayer.activePosition, randomNumber)
       console.log('goto', gotoTile)

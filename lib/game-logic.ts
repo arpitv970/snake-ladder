@@ -19,19 +19,20 @@ export const playGame = (currentPosition: number, diceRoll: number = 0) => {
 
   // check for snake
   const snake = snakePositions.find((snake) => {
-    snake.currentPosition === newPosition
+    return snake.currentPosition === newPosition
   });
-  if (snake) {
-    console.log(`Oops! You landed on a snake. Go back to position ${snake.gotoPosition}`);
+  if (snake?.currentPosition === newPosition) {
+    alert(`Oops! You landed on a snake. Go back to position ${snake.gotoPosition}`);
     return snake.gotoPosition;
   }
 
   // check for ladder
   const ladder = ladderPositions.find((ladder) => {
-    ladder.currentPosition === newPosition
+    return ladder.currentPosition === newPosition
   });
-  if (ladder) {
-    console.log(`Hooray! You found a ladder. Climb to position ${ladder.gotoPosition}`);
+  console.log('ladder', ladder)
+  if (ladder?.currentPosition === newPosition) {
+    alert(`Hooray! You found a ladder. Climb to position ${ladder.gotoPosition}`);
     return ladder.gotoPosition;
   }
 
