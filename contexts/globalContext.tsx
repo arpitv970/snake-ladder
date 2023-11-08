@@ -3,23 +3,31 @@
 import React, { useState } from "react"
 
 interface GlobalContextProps {
-  playersC: number,
-  setPlayersC: (val: number) => void
+  gameStatus: boolean,
+  setGameStatus: (val: boolean) => void,
+
+  diceRes: number,
+  setDiceRes: (val: number) => void,
 }
 
 export const GlobalContext = React.createContext<GlobalContextProps>({
-  playersC: 4,
-  setPlayersC: () => { }
+  gameStatus: false,
+  setGameStatus: () => { },
+
+  diceRes: 0,
+  setDiceRes: () => { }
 })
 
 export const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [playerCount, setPlayerCount] = useState(0)
-
+  const [gameStatus, setGameStatus] = useState(false)
+  const [diceRes, setDiceRes] = useState<number>(0);
   return (
     <GlobalContext.Provider
       value={{
-        playersC: playerCount,
-        setPlayersC: setPlayerCount,
+        gameStatus,
+        setGameStatus,
+        diceRes,
+        setDiceRes
       }}
     >
       {children}

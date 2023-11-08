@@ -97,6 +97,23 @@ main {
   @apply flex;
 }
 
+.player-id-1 {
+  @apply text-red-500;
+}
+
+.player-id-2 {
+  @apply text-blue-500;
+}
+
+.player-id-3 {
+  @apply text-green-500;
+}
+
+.player-id-4 {
+  @apply text-yellow-500;
+}
+
+
 /* Board */
 .board {
   @apply grid grid-cols-10 w-max border border-black rounded-lg gap-1;
