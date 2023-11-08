@@ -11,4 +11,5 @@ export interface boardTile {
 export interface playerType {
   id: number,
   activePosition: number,
+  acitve: boolean
 }

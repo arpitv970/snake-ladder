@@ -14,21 +14,10 @@ import { playerType } from '@/lib/types'
 import { playerCounts } from '@/lib/utils'
 import { Flag } from 'lucide-react'
 import React, { useState } from 'react'
+import PlayerBlock from './PlayerBlock'
 
 const SelectPlayers = () => {
-  const { gameStatus, setGameStatus } = useGlobalContext();
-
-  const [players, setPlayers] = useState<playerType[]>([
-    {
-      id: 1,
-      activePosition: 0,
-    },
-    {
-      id: 2,
-      activePosition: 0,
-    }
-  ])
-
+  const { gameStatus, setGameStatus, players, setPlayers } = useGlobalContext();
 
   const handleSelect = (e: string) => {
     const count = +e;
@@ -36,13 +25,15 @@ const SelectPlayers = () => {
     const newPlayer: playerType = {
       id: 1,
       activePosition: 0,
+      acitve: true,
     }
 
     const newPlayers = Array(count).fill(newPlayer);
     const updatePlayers = newPlayers.map((ele: playerType, idx) => {
       const newId = idx + 1
+      const newActive = newId === 1 ? true : false
 
-      return { ...ele, id: newId }
+      return { ...ele, id: newId, acitve: newActive }
     })
 
     setPlayers(updatePlayers)
@@ -84,14 +75,7 @@ const SelectPlayers = () => {
         {
           players.map((p, i) => {
             return (
-
-              <span
-                className={`player-id-${p.id}`}
-                key={i}
-              >
-                <Flag />
-              </span>
-
+              <PlayerBlock pId={p.id} key={i} />
             )
           })
         }

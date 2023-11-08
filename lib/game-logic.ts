@@ -12,15 +12,10 @@
 
 import { ladderPositions, snakePositions } from "./utils";
 
-export const playGame = (currentPosition: number, diceRoll: number) => {
+export const playGame = (currentPosition: number, diceRoll: number = 0) => {
 
   const newPosition = currentPosition + diceRoll;
 
-  if (currentPosition === 0) {
-    if (diceRoll === 1 || diceRoll === 6) {
-      return diceRoll
-    }
-  }
 
   // check for snake
   const snake = snakePositions.find((snake) => {
