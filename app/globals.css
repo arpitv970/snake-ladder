@@ -101,6 +101,11 @@ main {
 .board {
   @apply grid grid-cols-10 w-max;
 }
+
+.board-sec {
+@apply flex justify-center items-center mx-auto;
+}
+
 .tile {
   @apply h-[4rem] w-[4rem] m-0 px-0 flex justify-start items-start;
 }

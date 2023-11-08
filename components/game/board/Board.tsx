@@ -1,4 +1,4 @@
-import { board } from '@/lib/utils'
+import { board, ladderPositions, snakePositions } from '@/lib/utils'
 import React from 'react'
 import Tile from './Tile'
 
@@ -9,13 +9,41 @@ const Board = () => {
       <div className='board'>
         {
           board.map((row, idx) => (
-            row.map((item: number, idx2: number) => (
+            row.map((item: number, idx2: number) => {
+              const snakeTile = snakePositions.find((snake) => {
+                return snake['currentPosition'] === item + 1
+              })
 
-              <Tile
-                id={item + 1}
-                type='neutral'
-                key={idx}
-              />)
+              const ladderTile = ladderPositions.find((ladder) => {
+                return ladder['currentPosition'] === item + 1;
+              })
+
+              if (ladderTile?.currentPosition === item + 1) {
+                return (
+                  <Tile
+                    id={item + 1}
+                    type='ladder'
+                    key={idx}
+                  />)
+              }
+
+              else if (snakeTile?.currentPosition === item + 1) {
+                return (
+                  <Tile
+                    id={item + 1}
+                    type='snake'
+                  />
+                )
+              }
+
+              return (
+                <Tile
+                  id={item + 1}
+                  type='neutral'
+                  key={idx}
+                />)
+            }
+
             ))
           )
         }
