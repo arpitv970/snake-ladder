@@ -123,6 +123,14 @@ main {
 @apply flex justify-center items-center mx-auto;
 }
 
+.winner-sec {
+  @apply flex flex-col justify-center items-center w-[100%] h-[100%] gap-5 mx-auto;
+}
+
+.winner-sec h1 {
+  @apply font-black text-4xl;
+}
+
 .tile {
   @apply h-[4rem] w-[4rem] m-0 px-0 flex justify-start items-start rounded-lg;
 }

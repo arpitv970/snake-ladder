@@ -9,14 +9,15 @@ const HomePage = () => {
   const { players } = useGlobalContext();
   const winner = players.find(p => p.activePosition === -1)
   return (
-    <section className='game-arena'>
-      <Players />
-      {
-        winner
-          ? <Winner pId={winner.id} />
-          : <Board />
-      }
-    </section>
+    winner
+      ? <Winner pId={winner.id} />
+      : (
+
+        <section className='game-arena'>
+          <Players />
+          <Board />
+        </section>
+      )
   )
 }
 
