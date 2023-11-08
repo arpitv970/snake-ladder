@@ -99,7 +99,7 @@ main {
 
 /* Board */
 .board {
-  @apply grid grid-cols-10 w-max;
+  @apply grid grid-cols-10 w-max border border-black rounded-lg gap-1;
 }
 
 .board-sec {
@@ -107,7 +107,7 @@ main {
 }
 
 .tile {
-  @apply h-[4rem] w-[4rem] m-0 px-0 flex justify-start items-start;
+  @apply h-[4rem] w-[4rem] m-0 px-0 flex justify-start items-start rounded-lg;
 }
 .dark-tile {
   @apply bg-primary text-secondary;
