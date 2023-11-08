@@ -1,5 +1,4 @@
 'use client'
-import { FormItem, FormLabel } from '@/components/ui/form'
 import {
   Select,
   SelectContent,
@@ -9,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select'
+import { useGlobalContext } from '@/contexts'
 import { playerType } from '@/lib/types'
 import { playerCounts } from '@/lib/utils'
 import { Flag } from 'lucide-react'
@@ -19,6 +19,7 @@ interface PropsType {
 }
 
 const Players = () => {
+  const { playersC, setPlayersC } = useGlobalContext();
   const [players, setPlayers] = useState<playerType[]>([
     {
       id: 1,

@@ -1,9 +1,9 @@
+'use client'
 import { board, ladderPositions, snakePositions } from '@/lib/utils'
 import React from 'react'
 import Tile from './Tile'
 
 const Board = () => {
-
   return (
     <section className='board-sec game-arena-sec'>
       <div className='board'>
