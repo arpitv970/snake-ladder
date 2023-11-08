@@ -81,7 +81,10 @@ const Players = () => {
           players.map((p, i) => {
             return (
 
-              <span className={`${p.id === 1 && 'text-red-500'} ${p.id === 2 && 'text-blue-500'} ${p.id === 3 && 'text-green-500'} ${p.id === 4 && 'text-yellow-500'}`}>
+              <span
+                className={`${p.id === 1 && 'text-red-500'} ${p.id === 2 && 'text-blue-500'} ${p.id === 3 && 'text-green-500'} ${p.id === 4 && 'text-yellow-500'}`}
+                key={i}
+              >
                 <Flag />
               </span>
 
